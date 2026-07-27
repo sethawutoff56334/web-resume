@@ -1,8 +1,118 @@
 @import "tailwindcss";
 
+@property --background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #eaf4fb;
+}
+@property --foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1e3a4c;
+}
+@property --pastel-blue-50 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #f4f9fd;
+}
+@property --pastel-blue-100 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e6f2fa;
+}
+@property --pastel-blue-200 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #cfe8f7;
+}
+@property --pastel-blue-300 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #aad6ef;
+}
+@property --pastel-blue-400 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #86c2e6;
+}
+@property --pastel-blue-500 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5fa9d6;
+}
+@property --pastel-blue-600 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #3f8bc0;
+}
+@property --pastel-blue-700 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2d6b98;
+}
+@property --card-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(255, 255, 255, 0.7);
+}
+@property --card-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+@property --toggle-thumb {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eaf4fb;
+  --foreground: #1e3a4c;
+  --pastel-blue-50: #f4f9fd;
+  --pastel-blue-100: #e6f2fa;
+  --pastel-blue-200: #cfe8f7;
+  --pastel-blue-300: #aad6ef;
+  --pastel-blue-400: #86c2e6;
+  --pastel-blue-500: #5fa9d6;
+  --pastel-blue-600: #3f8bc0;
+  --pastel-blue-700: #2d6b98;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: #ffffff;
+  --toggle-thumb: #ffffff;
+}
+
+:root.dark {
+  --background: #0d1b26;
+  --foreground: #eaf4fb;
+  --pastel-blue-50: #0d1b26;
+  --pastel-blue-100: #24455f;
+  --pastel-blue-200: #2c5272;
+  --pastel-blue-300: #386784;
+  --pastel-blue-400: #3a5f7d;
+  --pastel-blue-500: #6fa3c2;
+  --pastel-blue-600: #9cc6e0;
+  --pastel-blue-700: #d7ecf9;
+  --card-bg: rgba(42, 74, 99, 0.78);
+  --card-border: rgba(255, 255, 255, 0.18);
+  --toggle-thumb: #3a5f7d;
+}
+
+:root {
+  transition:
+    --background 0.5s ease,
+    --foreground 0.5s ease,
+    --pastel-blue-50 0.5s ease,
+    --pastel-blue-100 0.5s ease,
+    --pastel-blue-200 0.5s ease,
+    --pastel-blue-300 0.5s ease,
+    --pastel-blue-400 0.5s ease,
+    --pastel-blue-500 0.5s ease,
+    --pastel-blue-600 0.5s ease,
+    --pastel-blue-700 0.5s ease,
+    --card-bg 0.5s ease,
+    --card-border 0.5s ease,
+    --toggle-thumb 0.5s ease;
 }
 
 @theme inline {
@@ -12,15 +122,141 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.theme-fade-overlay {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+:root.dark .theme-fade-overlay {
+  opacity: 1;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(
+    180deg,
+    var(--pastel-blue-50),
+    var(--pastel-blue-100),
+    var(--pastel-blue-200)
+  );
+  background-attachment: fixed;
+  background-size: 100% 100vh;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+::selection {
+  background: var(--pastel-blue-300);
+}
+
+.scroll-area {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  touch-action: pan-y;
+}
+
+.scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-18px) translateX(10px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 9s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@media print {
+  :root,
+  :root.dark {
+    --background: #eaf4fb;
+    --foreground: #1e3a4c;
+    --pastel-blue-50: #f4f9fd;
+    --pastel-blue-100: #e6f2fa;
+    --pastel-blue-200: #cfe8f7;
+    --pastel-blue-300: #aad6ef;
+    --pastel-blue-400: #86c2e6;
+    --pastel-blue-500: #5fa9d6;
+    --pastel-blue-600: #3f8bc0;
+    --pastel-blue-700: #2d6b98;
+    --card-bg: #ffffff;
+    --card-border: #ffffff;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .print-hide,
+  .theme-fade-overlay,
+  .pulse-ring,
+  .animate-float,
+  .animate-float-slow {
+    display: none !important;
+  }
+
+  .print-page {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: visible !important;
+    break-after: page;
+  }
+
+  .print-page:last-of-type {
+    break-after: auto;
+  }
+
+  [data-scroll-area] {
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
