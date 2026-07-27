@@ -22,9 +22,12 @@ public/
 ขั้นตอนก็ง่าย ๆ ประมาณนี้:
 
 ```bash
-# 1. โคลนโปรเจกต์มาก่อน
-git clone <repo-url>
-cd off
+# 1. โคลนโปรเจกต์มาก่อน (เลือกใช้ HTTPS หรือ SSH อันไหนก็ได้)
+git clone https://github.com/sethawutoff56334/web-resume.git
+# หรือ
+git clone git@github.com:sethawutoff56334/web-resume.git
+
+cd web-resume
 
 # 2. ติดตั้ง dependencies
 npm install
