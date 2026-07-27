@@ -23,7 +23,7 @@ export default function ScrollBar() {
     <div
       ref={trackRef}
       onClick={handleTrackClick}
-      className="fixed right-2 top-1/2 z-[100] h-[40vh] w-1.5 -translate-y-1/2 cursor-pointer rounded-full bg-[var(--pastel-blue-300)]/40 sm:right-3 print:hidden"
+      className="fixed right-2 top-1/2 z-[100] hidden h-[40vh] w-1.5 -translate-y-1/2 cursor-pointer rounded-full bg-[var(--pastel-blue-300)]/40 sm:right-3 sm:block print:hidden"
     >
       <div
         className="absolute left-0 w-full rounded-full bg-[var(--pastel-blue-700)] transition-all duration-500 ease-out"

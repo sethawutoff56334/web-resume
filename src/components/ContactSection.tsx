@@ -108,7 +108,7 @@ export default function ContactSection({ index }: { index?: number }) {
             className={c.label === "Address" ? "sm:col-span-2" : ""}
           >
             <motion.div
-              className="relative rounded-2xl bg-[var(--card-bg)] p-5 text-center shadow-md backdrop-blur transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="relative rounded-2xl bg-[var(--card-bg)] p-3.5 text-center shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-5 sm:backdrop-blur"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}

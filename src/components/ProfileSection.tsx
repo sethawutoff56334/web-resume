@@ -171,7 +171,7 @@ export default function ProfileSection({ index }: { index?: number }) {
             return (
               <TiltGlow key={group.category}>
                 <motion.div
-                  className="rounded-2xl bg-[var(--card-bg)] p-5 shadow-md backdrop-blur"
+                  className="rounded-2xl bg-[var(--card-bg)] p-3.5 shadow-md sm:p-5 sm:backdrop-blur"
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.4 }}

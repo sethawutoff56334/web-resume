@@ -70,7 +70,7 @@ function ExperienceTimeline() {
       {experiences.map((exp, i) => (
         <TiltGlow key={exp.role + i} clip={false}>
           <motion.div
-            className="relative rounded-2xl bg-[var(--card-bg)] p-5 shadow-md backdrop-blur"
+            className="relative rounded-2xl bg-[var(--card-bg)] p-3.5 shadow-md sm:p-5 sm:backdrop-blur"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
@@ -132,7 +132,7 @@ function Timeline({
       {items.map((item, i) => (
         <TiltGlow key={item.title + i} clip={false}>
           <motion.div
-            className="relative rounded-2xl bg-[var(--card-bg)] p-5 shadow-md backdrop-blur"
+            className="relative rounded-2xl bg-[var(--card-bg)] p-3.5 shadow-md sm:p-5 sm:backdrop-blur"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
