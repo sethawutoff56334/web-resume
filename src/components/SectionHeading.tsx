@@ -31,7 +31,7 @@ export function SubHeading({ title }: { title: string }) {
   return (
     <div className="mb-4 flex items-center gap-2.5">
       <span className="h-4 w-1.5 rounded-full bg-gradient-to-b from-[var(--pastel-blue-400)] to-[var(--pastel-blue-600)]" />
-      <h3 className="text-sm font-bold uppercase tracking-widest text-[var(--pastel-blue-600)]">
+      <h3 className="text-lg font-bold uppercase tracking-widest text-[var(--pastel-blue-600)]">
         {title}
       </h3>
     </div>

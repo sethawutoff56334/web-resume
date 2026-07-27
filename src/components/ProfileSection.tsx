@@ -177,7 +177,7 @@ export default function ProfileSection({ index }: { index?: number }) {
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
                 >
-                  <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-[var(--pastel-blue-700)]">
+                  <h3 className="mb-3 flex items-center gap-2 text-base font-semibold text-[var(--pastel-blue-700)]">
                     <Icon />
                     {group.category}
                   </h3>
