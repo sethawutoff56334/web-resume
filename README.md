@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Resume
 
-## Getting Started
+นี่คือเรซูเม่ออนไลน์ของผม ทำเป็นเว็บเพจแทนไฟล์ PDF แบบเดิม ๆ เพราะอยากให้ดูมีชีวิตชีวาขึ้นมาหน่อย มีแอนิเมชันเวลาเลื่อนดู สลับโหมด Light/Dark ได้ และยังมีลิงก์ดาวน์โหลดไฟล์ PDF ไว้เผื่อใครอยากเก็บไว้แบบเดิมด้วย
 
-First, run the development server:
+เบื้องหลังใช้ [Next.js](https://nextjs.org) + React + Tailwind CSS สำหรับหน้าเว็บ และ Framer Motion สำหรับความลื่นไหลของแอนิเมชัน
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## โครงสร้างโปรเจกต์
+
+```
+src/
+  app/            # หน้าเว็บหลัก (Next.js App Router)
+  components/     # คอมโพเนนต์ต่าง ๆ เช่น ProfileSection, ExperienceSection, ContactSection
+public/
+  profile/        # รูปโปรไฟล์
+  resume/         # ไฟล์เรซูเม่ (PDF)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## อยากลองรันดูเองไหม
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ก่อนอื่นต้องมี [Node.js](https://nodejs.org) เวอร์ชัน 18 ขึ้นไปในเครื่องก่อนนะ (npm ก็ติดมาด้วยอยู่แล้ว)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ขั้นตอนก็ง่าย ๆ ประมาณนี้:
 
-## Learn More
+```bash
+# 1. โคลนโปรเจกต์มาก่อน
+git clone <repo-url>
+cd off
 
-To learn more about Next.js, take a look at the following resources:
+# 2. ติดตั้ง dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 3. รันเซิร์ฟเวอร์ dev
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+เสร็จแล้วเปิด [http://localhost:3000](http://localhost:3000) ได้เลย จะเห็นหน้าเรซูเม่ขึ้นมา
 
-## Deploy on Vercel
+ถ้าอยากแก้เนื้อหา ไปแก้ที่ `src/app/page.tsx` หรือคอมโพเนนต์ต่าง ๆ ใน `src/components/` ได้เลย พอเซฟไฟล์หน้าเว็บจะรีเฟรชให้อัตโนมัติ ไม่ต้องกด reload เอง
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## คำสั่งอื่น ๆ ที่มี
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` — รันแบบ dev เอาไว้แก้ ๆ ดูผล
+- `npm run build` — build เป็นเวอร์ชัน production
+- `npm run start` — รันเวอร์ชันที่ build แล้ว
+- `npm run lint` — เช็คโค้ดด้วย ESLint
